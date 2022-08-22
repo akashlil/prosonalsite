@@ -22,6 +22,7 @@ export default function Home() {
       <div>
         <Slider></Slider>
       </div>
+      hhh
     </div>
   );
 }
