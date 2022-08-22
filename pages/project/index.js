@@ -20,24 +20,24 @@ const Project = () => {
     <div>
       <div className="">
         <h1 className="text-center m-5">My Project</h1>
-        <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 text-dark">
+        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 text-dark">
           {projects?.map((project) => (
-            <div class="col" key={project.id}>
+            <div className="col" key={project.id}>
               <div
-                class={["card h-100", projectStyle.couser].join(" ")}
+                className={["card h-100", projectStyle.couser].join(" ")}
                 onClick={() => projectDeatel(project.id)}
               >
-                <img src={imgPro} class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title text-capitalize">
+                <img src={imgPro} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title text-capitalize">
                     {project.projectName.slice(0, 20)}
                   </h5>
-                  <p class="card-text text-dark">
+                  <p className="card-text text-dark">
                     {project.projectDes.slice(0, 50)}....
                   </p>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted text-end">
+                <div className="card-footer">
+                  <small className="text-muted text-end">
                     price <span>Tk 500</span>{" "}
                   </small>
                 </div>

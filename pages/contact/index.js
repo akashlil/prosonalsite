@@ -1,22 +1,22 @@
 const Contact = () => {
   return (
     <div>
-      <div class="fields">
+      <div className="fields">
         <form
           action="/"
           method="post"
-          class="contact_form"
+          className="contact_form"
           id="contact_form"
           autocomplete="off"
         >
           <div
-            class="returnmessage"
+            className="returnmessage"
             data-success="Your message has been received, We will contact you soon."
           ></div>
-          <div class="empty_notice">
+          <div className="empty_notice">
             <span>Please Fill Required Fields</span>
           </div>
-          <div class="input_list">
+          <div className="input_list">
             <ul>
               <li>
                 <input id="name" type="text" placeholder="Your Name" />
@@ -32,13 +32,13 @@ const Contact = () => {
               </li>
             </ul>
           </div>
-          <div class="message_area">
+          <div className="message_area">
             <textarea
               id="message"
               placeholder="Write your message here"
             ></textarea>
           </div>
-          <div class="dizme_tm_button">
+          <div className="dizme_tm_button">
             <a id="send_message" href="#">
               <span>Submit Now</span>
             </a>
