@@ -1,0 +1,7 @@
+.couser{
+  cursor:pointer; 
+}
+
+.couser:hover{
+  color: #a134f6;
+}

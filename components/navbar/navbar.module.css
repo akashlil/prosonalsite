@@ -1,0 +1,14 @@
+
+.navtextcolor {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #ffff !important;
+  }
+  .navtextcolor:hover {
+    color: #3517b0 !important;
+  }
+  @media only screen and (max-width: 600px) {
+    .nav-item:last-child {
+      order: -1;
+    }
+  }
