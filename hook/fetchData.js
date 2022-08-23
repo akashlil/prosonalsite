@@ -3,6 +3,7 @@ import axios from "axios";
 
 function useUser(url) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
   const { data, error } = useSWR(url, fetcher);
   return {
     datas: data,

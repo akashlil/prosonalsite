@@ -1,50 +1,39 @@
 const Contact = () => {
   return (
-    <div>
-      <div className="fields">
-        <form
-          action="/"
-          method="post"
-          className="contact_form"
-          id="contact_form"
-          autocomplete="off"
-        >
-          <div
-            className="returnmessage"
-            data-success="Your message has been received, We will contact you soon."
-          ></div>
-          <div className="empty_notice">
-            <span>Please Fill Required Fields</span>
+    <div className="row row-cols-md-2 justify-content-center">
+      <form action="/app/">
+        <h1 className="text-center mb-4">Contact</h1>
+        <div className="mb-3">
+          <div className="form-floating">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Leave a email here"
+              id="floatingTextarea1"
+            />
+            <label for="floatingTextarea1" className="text-black">
+              Enter Your Email
+            </label>
           </div>
-          <div className="input_list">
-            <ul>
-              <li>
-                <input id="name" type="text" placeholder="Your Name" />
-              </li>
-              <li>
-                <input id="email" type="text" placeholder="Your Email" />
-              </li>
-              <li>
-                <input id="phone" type="number" placeholder="Your Phone" />
-              </li>
-              <li>
-                <input id="subject" type="text" placeholder="Subject" />
-              </li>
-            </ul>
-          </div>
-          <div className="message_area">
+        </div>
+        <div className="mb-3">
+          <div className="form-floating">
             <textarea
-              id="message"
-              placeholder="Write your message here"
+              className="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style={{ height: "100px" }}
             ></textarea>
+            <label for="floatingTextarea2" className="text-black">
+              Comments
+            </label>
           </div>
-          <div className="dizme_tm_button">
-            <a id="send_message" href="#">
-              <span>Submit Now</span>
-            </a>
-          </div>
-        </form>
-      </div>
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
