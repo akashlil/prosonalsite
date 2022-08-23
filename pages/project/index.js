@@ -38,7 +38,7 @@ const Project = ({ projects }) => {
                 </div>
                 <div className="card-footer">
                   <small className="text-muted text-end">
-                    price <span>Tk 500</span>{" "}
+                    price <span>views</span>{" "}
                   </small>
                 </div>
               </div>
