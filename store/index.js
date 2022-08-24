@@ -5,4 +5,5 @@ const store = configureStore({
     counterstate: counterSlice.reducer,
   },
 });
+
 export default store;

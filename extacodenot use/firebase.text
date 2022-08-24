@@ -1,0 +1,47 @@
+import "firebase/analytics";
+import { firebase, initializeApp, getApps, getApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+const firebaseConfig = {
+  apiKey: "AIzaSyDAAknsjRobGd1LW4sThIzMmTTTvDYYW0Q",
+  authDomain: "nextjs-portfolio-f3da1.firebaseapp.com",
+  projectId: "nextjs-portfolio-f3da1",
+  storageBucket: "nextjs-portfolio-f3da1.appspot.com",
+  messagingSenderId: "359923421622",
+  appId: "1:359923421622:web:3d0c2755f4f345e8017117",
+  measurementId: "G-80J54M5Q1C",
+};
+// getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+// const app = initializeApp(firebaseConfig);
+
+if (getApps().length === 0) {
+  initializeApp(firebaseConfig);
+  if (typeof window !== "undefined") {
+    if ("measurementId" in firebaseConfig) {
+      getAnalytics();
+      console.log("ok");
+    }
+  }
+} else {
+  getApp();
+  console.log("not");
+}
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+import { firebase, initializeApp, getApps, getApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import firebaseConfig from "./firebase.config";
+
+const app = initializeApp(firebaseConfig);
+if (typeof window !== "undefined") {
+  if ("measurementId" in firebaseConfig) {
+    getAnalytics(app);
+    console.log("ok");
+    const analytics = getAnalytics(app);
+  }
+}

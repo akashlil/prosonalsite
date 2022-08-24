@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import Link from "next/link";
 import navstyle from "./navbar.module.css";
+import useAuth from "../../hook/useAuth";
+
 export default function Navbar() {
-  // const email = useSelector((state) => state.counterstate.email);
   const logo = `https://i.ibb.co/StVKHKz/A-removebg-preview.png`;
 
+  const { logingWithGoogle, user, logOut } = useAuth();
+  console.log(user);
   return (
     <nav className="navbar navbar-expand-lg navbar-light py-5">
       <div className="container">
@@ -59,6 +61,19 @@ export default function Navbar() {
                   Contact
                 </a>
               </Link>
+            </li>
+            <li className="nav-item ">
+              <button
+                className="btn btn-success"
+                onClick={() => logingWithGoogle()}
+              >
+                Login
+              </button>
+            </li>
+            <li className="nav-item ">
+              <button className="btn btn-danger ms-2" onClick={() => logOut()}>
+                LogOut
+              </button>
             </li>
 
             {/* <li className={navstyle.navitem}>

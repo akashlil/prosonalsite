@@ -1,8 +1,10 @@
+// import { useSelector, useDispatch, useStore } from "react-redux";
+// import { counterActions } from "../store/counterSlice";
 import Meta from "../components/Meta";
-import { useSelector, useDispatch } from "react-redux";
-import { counterActions } from "../store/counterSlice";
 import Slider from "../components/Slider/Slider";
+
 export default function Home() {
+  // firebaseInit();
   // const counter = useSelector((state) => state.counterstate.count);
   // const email = useSelector((state) => state.counterstate.email);
 
