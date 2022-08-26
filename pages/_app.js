@@ -3,16 +3,17 @@ import "../styles/globals.css";
 import { Provider } from "react-redux";
 import store from "../store/index";
 import "../styles/bootstrap.min.css";
-import AuthProvider from "../context/AuthProvider";
+import AuthStateChang from "../components/AuthStateChang";
+
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className="text-white">
       <Provider store={store}>
-        <AuthProvider>
+        <AuthStateChang>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </AuthProvider>
+        </AuthStateChang>
       </Provider>
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

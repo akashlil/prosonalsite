@@ -1,0 +1,31 @@
+// import clientPromise from "../../lib/mongo";
+import axios from "axios";
+/* 
+
+
+
+ export default function a( { projects, comingData }){
+
+
+ }
+export const getServerSideProps = async (context) => {
+  const client = await clientPromise;
+  let comingData = true;
+
+  const db = await client.db("Myprotfilo").collection("addproject");
+  let projects = await db.find({}).toArray();
+  projects = JSON.parse(JSON.stringify(projects));
+  if (projects) {
+    comingData = false;
+  }
+  // const res = await axios.get("http://localhost:3000/api/projects");
+  // const projects = res.data;
+
+  return {
+    props: {
+      projects,
+      comingData,
+    },
+  };  
+};
+ */

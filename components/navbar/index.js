@@ -1,15 +1,29 @@
 import React from "react";
 import Link from "next/link";
 import navstyle from "./navbar.module.css";
-import useAuth from "../../hook/useAuth";
+import { useSelector, useDispatch } from "react-redux";
+import { signOut, getAuth } from "firebase/auth";
+import { logOut } from "../../store/firebaseSlice";
+import firebaseinitializeApp from "../../firebase/firebase.init";
+firebaseinitializeApp();
 
 export default function Navbar() {
   const logo = `https://i.ibb.co/StVKHKz/A-removebg-preview.png`;
 
-  const { logingWithGoogle, user, logOut } = useAuth();
-  console.log(user);
+  const user = useSelector((state) => state.firebaseState.user);
+
+  const dispatch = useDispatch();
+  const auth = getAuth();
+  const logOuts = async () => {
+    try {
+      await signOut(auth);
+    } finally {
+      dispatch(logOut());
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light py-5">
+    <nav className="container navbar navbar-expand-lg navbar-light py-5">
       <div className="container">
         <Link className="navbar-brand" href="/">
           <a>
@@ -62,18 +76,24 @@ export default function Navbar() {
                 </a>
               </Link>
             </li>
-            <li className="nav-item ">
-              <button
-                className="btn btn-success"
-                onClick={() => logingWithGoogle()}
-              >
-                Login
-              </button>
-            </li>
-            <li className="nav-item ">
-              <button className="btn btn-danger ms-2" onClick={() => logOut()}>
-                LogOut
-              </button>
+            <li className="nav-item">
+              {!user ? (
+                <Link href="/login">
+                  <a className={["nav-link", navstyle.navtextcolor].join(" ")}>
+                    Login
+                  </a>
+                </Link>
+              ) : (
+                <button
+                  className={[
+                    "btn btn-md  me-2 me-md-0",
+                    navstyle.navtextcolor,
+                  ].join(" ")}
+                  onClick={logOuts}
+                >
+                  LogOut
+                </button>
+              )}
             </li>
 
             {/* <li className={navstyle.navitem}>

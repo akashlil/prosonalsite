@@ -1,45 +1,33 @@
 import firebaseinitializeApp from "../firebase/firebase.init";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   getAuth,
   signOut,
-  onAuthStateChanged,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
 } from "firebase/auth";
 
 firebaseinitializeApp();
 
 const useFirebase = () => {
-  const [user, setUser] = useState("hello");
+  const [user, setUser] = useState(null);
   const [loaddata, setLodingdata] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
 
-  const logingWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((result) => {
-      setUser(result);
-      setLodingdata(false);
-    });
+  const logingWithGoogle = async () => {
+    const logData = await signInWithRedirect(auth, googleProvider);
+    setUser(logData.user);
+    setLodingdata(false);
   };
 
-  const logOut = () => {
-    signOut(auth).then(() => {
-      setUser({});
-    });
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } finally {
+      setUser(null);
+    }
   };
-
-  useEffect(() => {
-    const unsubcri = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        setLodingdata(false);
-      } else {
-        setUser({});
-      }
-    });
-    return () => unsubcri;
-  }, [auth]);
 
   return {
     user,

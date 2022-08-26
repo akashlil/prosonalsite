@@ -1,0 +1,28 @@
+import React from "react";
+import { useRouter } from "next/router";
+import useAuth from "./useAuth";
+
+export function withPrivet(Component) {
+  return function withprivet(props) {
+    const auth = useAuth();
+    const router = useRouter();
+    if (!auth?.user?.email) {
+      router.replace("/login");
+      return;
+    }
+    return <Component auth={auth} {...props} />;
+  };
+}
+
+export function withPublic(Component) {
+  return function withpublic(props) {
+    const auth = useAuth();
+    const router = useRouter();
+    if (auth?.user?.email) {
+      router.replace("/");
+      return;
+    } else {
+      return <Component auth={auth} {...props} />;
+    }
+  };
+}

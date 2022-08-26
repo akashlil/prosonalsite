@@ -1,13 +1,25 @@
-// import clientPromise from "../../lib/mongo";
 import projectStyle from "./project.module.css";
-import axios from "axios";
+import LoadData from "../../components/LoadData/LoadData";
+import { useEffect, useState } from "react";
 
-const Project = ({ projects }) => {
+const Project = () => {
+  let pamison = [4];
+  const [projects, setProject] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((res) => res.json())
+      .then((data) => {
+        setProject(data);
+      });
+  }, []);
+
   return (
     <div>
-      <div className="">
+      <div className="container">
         <h1 className="text-center m-5">My Project</h1>
         <div className="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4 text-dark">
+          {projects == null ? <LoadData pamison={pamison} /> : ""}
           {projects?.map((project) => (
             <div className="col" key={project._id}>
               <div className="card h-100">
@@ -16,6 +28,7 @@ const Project = ({ projects }) => {
                   className="card-img-top"
                   alt="..."
                 />
+
                 <div className="card-body">
                   <h5 className="card-title text-capitalize">
                     {project.title.slice(0, 20)}
@@ -25,39 +38,22 @@ const Project = ({ projects }) => {
                     href={project.livelink}
                     target="_blanck"
                   >
-                    live Link {project.livelink.slice(0, 50)}....
+                    live Link : {project.livelink.slice(0, 50)}....
                   </a>
                 </div>
                 <div className="card-footer">
                   <small className="text-muted text-end">
-                    price <span>Tk 500</span>{" "}
+                    Rating{"  "}
+                    <span className="text-danger"> 4/5</span>
                   </small>
                 </div>
               </div>
             </div>
           ))}
-          ;
         </div>
       </div>
     </div>
   );
-};
-
-export const getServerSideProps = async (context) => {
-  // const client = await clientPromise;
-
-  // const db = await client.db("Myprotfilo").collection("addproject");
-  // let projects = await db.find({}).toArray();
-  // projects = JSON.parse(JSON.stringify(projects));
-
-  const res = await axios.get("http://localhost:3000/api/projects");
-  const projects = res.data;
-
-  return {
-    props: {
-      projects,
-    },
-  };
 };
 
 export default Project;
