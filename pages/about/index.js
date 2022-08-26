@@ -6,10 +6,10 @@ const About = () => {
   return (
     <div className="container">
       <div
-        class="row g-0 text-center justify-content-cente align-items-center"
+        className="row g-0 text-center justify-content-cente align-items-center"
         style={{ minHeight: "60vh" }}
       >
-        <div class="col-md-8 col-12 pe-5">
+        <div className="col-md-8 col-12 pe-5">
           <div className=" " data-aos="fade-right">
             <div className="">
               <h1>Akash</h1>
@@ -30,7 +30,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-12 ">
+        <div className="col-md-4 col-12 ">
           <div className="rounded-5 shadow-lg  p-4">
             <img src={imgPro} className="img-fluid rounded-5 " alt="..." />
           </div>

@@ -31,35 +31,35 @@ const LoadData = ({ pamison }) => {
       {a == 3 ? <div className={loadStyle.cssdom}></div> : ""}
       {a == 4 ? (
         <div className="d-flex justify-content-between">
-          <button class="btn btn-primary" type="button" disabled>
+          <button className="btn btn-primary" type="button" disabled>
             <span
-              class="spinner-border spinner-border-sm"
+              className="spinner-border spinner-border-sm"
               role="status"
               aria-hidden="true"
             ></span>
-            <span class="">Data Loading...</span>
+            <span className="">Data Loading...</span>
           </button>
-          <div class="spinner-grow text-secondary" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-grow text-secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-grow text-success" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-grow text-danger" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow text-warning" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-grow text-warning" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow text-info" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-grow text-info" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow text-light" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-grow text-light" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <button class="btn btn-primary" type="button" disabled>
+          <button className="btn btn-primary" type="button" disabled>
             <span
-              class="spinner-border spinner-border-sm"
+              className="spinner-border spinner-border-sm"
               role="status"
               aria-hidden="true"
             ></span>

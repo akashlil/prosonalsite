@@ -12,7 +12,7 @@ const Contact = () => {
                 placeholder="Leave a email here"
                 id="floatingTextarea1"
               />
-              <label for="floatingTextarea1" className="text-black">
+              <label htmlFor="floatingTextarea1" className="text-black">
                 Enter Your Email
               </label>
             </div>
@@ -25,7 +25,7 @@ const Contact = () => {
                 id="floatingTextarea2"
                 style={{ height: "100px" }}
               ></textarea>
-              <label for="floatingTextarea2" className="text-black">
+              <label htmlFor="floatingTextarea2" className="text-black">
                 Comments
               </label>
             </div>
